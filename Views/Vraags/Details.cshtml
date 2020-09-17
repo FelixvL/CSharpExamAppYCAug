@@ -1,0 +1,42 @@
+﻿@model DBExamenVragenAppDB.Vraag
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vraag</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VraagTekst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VraagTekst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Antwoord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antwoord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Toelichting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Toelichting)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VraagID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

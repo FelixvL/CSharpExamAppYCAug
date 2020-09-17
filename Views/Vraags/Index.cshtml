@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DBExamenVragenAppDB.Vraag>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VraagTekst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antwoord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Toelichting)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VraagTekst)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antwoord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Toelichting)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VraagID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VraagID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VraagID })
+        </td>
+    </tr>
+}
+
+</table>
