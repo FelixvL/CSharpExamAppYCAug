@@ -1,0 +1,20 @@
+﻿@using DBExamenVragenAppDB; 
+@model IEnumerable<DBExamenVragenAppDB.Vraag>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Zelf Proberen</h2>
+Hier moet een lijst komen
+
+@foreach (var question in Model) { 
+    <div> @Html.DisplayFor(modelItem => question.Toelichting)</div>
+}
+
+
+<button> @Html.ActionLink("CreeerVraag","CreeerVraag")</button>
+
+
+
+
+
