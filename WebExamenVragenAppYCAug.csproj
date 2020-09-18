@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VraagsController.cs" />
+    <Compile Include="Controllers\ZelfProberenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +175,8 @@
     <Content Include="Views\Vraags\Details.cshtml" />
     <Content Include="Views\Vraags\Edit.cshtml" />
     <Content Include="Views\Vraags\Index.cshtml" />
+    <Content Include="Views\ZelfProberen\Index.cshtml" />
+    <Content Include="Views\ZelfProberen\CreeerVraag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
