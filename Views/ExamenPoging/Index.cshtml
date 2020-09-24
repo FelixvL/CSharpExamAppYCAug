@@ -11,5 +11,11 @@
     <div>@v.VraagTekst</div>
 }
 
-@Html.ActionLink("StartExamen", "StartExamen") 
+@Html.ActionLink("StartExamen", "StartExamen")
+
+@foreach (Examen v in ViewBag.Examenlijst)
+{
+    <div>@v.vraag.VraagTekst</div>
+	<div>@v.questions.Count </div>
+}
 
