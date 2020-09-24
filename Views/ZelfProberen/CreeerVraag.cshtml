@@ -1,7 +1,20 @@
-﻿
+﻿@model DBExamenVragenAppDB.Vraag
 @{
     ViewBag.Title = "CreeerVraag";
 }
 
 <h2>CreeerVraag</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <span>Vraag</span><br />
+    @Html.EditorFor(model => model.VraagTekst, new { htmlAttributes = new { @class = "form-control" } })
+    <span>Antwoord</span><br />
+    @Html.EditorFor(model => model.Antwoord, new { htmlAttributes = new { @class = "form-control" } })
+    <span>Toelichting</span><br />
+    @Html.EditorFor(model => model.Toelichting, new { htmlAttributes = new { @class = "form-control" } })
+    <input type="submit" value="Create" class="btn btn-default" />
+}
 

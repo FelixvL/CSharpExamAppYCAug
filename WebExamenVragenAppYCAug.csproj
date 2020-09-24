@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ExamenPogingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VraagsController.cs" />
     <Compile Include="Controllers\ZelfProberenController.cs" />
@@ -177,6 +178,8 @@
     <Content Include="Views\Vraags\Index.cshtml" />
     <Content Include="Views\ZelfProberen\Index.cshtml" />
     <Content Include="Views\ZelfProberen\CreeerVraag.cshtml" />
+    <Content Include="Views\ZelfProberen\WijzigVraag.cshtml" />
+    <Content Include="Views\ExamenPoging\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
