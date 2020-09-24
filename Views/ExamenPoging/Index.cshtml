@@ -1,0 +1,15 @@
+﻿@using DBExamenVragenAppDB;
+@model IEnumerable<DBExamenVragenAppDB.Vraag>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ExamenPoging</h2>
+
+@foreach (Vraag v in ViewBag.Vragenlijst)
+{
+    <div>@v.VraagTekst</div>
+}
+
+@Html.ActionLink("StartExamen", "StartExamen") 
+
