@@ -15,6 +15,9 @@ namespace WebExamenVragenAppYCAug.Controllers
         public ActionResult Index()
         {
             ViewBag.Vragenlijst = db.vragen.ToList();
+            ViewBag.Examenlijst = db.examens.ToList();
+            
+
             return View(db.vragen.ToList());
         }
     }
