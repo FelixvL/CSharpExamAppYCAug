@@ -11,11 +11,15 @@
     <div>@v.VraagTekst</div>
 }
 
-@Html.ActionLink("StartExamen", "StartExamen")
+
 
 @foreach (Examen v in ViewBag.Examenlijst)
 {
-    <div>@v</div>
-	<div>@v </div>
+<div>@Html.ActionLink(@v.naam, "StartExamen", new { examennummer = v.ExamenId }))</div>
+    <div>@foreach (Vraag vv in v.questions)
+    {
+        <span>@vv.VraagTekst</span>
+    }
+    </div>
 }
 

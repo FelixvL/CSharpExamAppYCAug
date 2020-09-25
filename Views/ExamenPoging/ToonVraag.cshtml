@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "ToonVraag";
+}
+
+<h2>ToonVraag</h2>
+<div>@ViewBag.tdtd.huidigeVraag.VraagTekst</div>
+
+@Html.ActionLink("Volgende Vraag", "ToonVraag", new { vraagindex = ViewBag.tdtd.huidigeIndex + 1, examenId = ViewBag.tdtd.examen.ExamenId })
+

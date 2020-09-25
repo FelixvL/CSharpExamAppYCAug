@@ -1,0 +1,13 @@
+﻿@using DBExamenVragenAppDB;
+@model DBExamenVragenAppDB.Examen
+@{
+    ViewBag.Title = "StartExamen";
+}
+
+<h2>StartExamen </h2>
+@foreach (Vraag vraag in Model.questions)
+{
+    <div>@vraag.VraagTekst</div>
+}
+
+@Html.ActionLink("Start Examen", "ToonVraag", new { vraagindex = 0, examenId = Model.ExamenId })

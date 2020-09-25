@@ -180,6 +180,8 @@
     <Content Include="Views\ZelfProberen\CreeerVraag.cshtml" />
     <Content Include="Views\ZelfProberen\WijzigVraag.cshtml" />
     <Content Include="Views\ExamenPoging\Index.cshtml" />
+    <Content Include="Views\ExamenPoging\StartExamen.cshtml" />
+    <Content Include="Views\ExamenPoging\ToonVraag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
