@@ -14,7 +14,7 @@ namespace WebExamenVragenAppYCAug
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<DBExamContext>(new DropCreateDatabaseIfModelChanges<DBExamContext>());
+         //   Database.SetInitializer<DBExamContext>(new DropCreateDatabaseIfModelChanges<DBExamContext>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
