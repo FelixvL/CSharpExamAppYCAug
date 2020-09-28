@@ -1,0 +1,16 @@
+﻿@model DBExamenVragenAppDB.Examen
+@{
+    ViewBag.Title = "CreeerExamen";
+}
+
+<h2>CreeerVraag</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <span>Vraag</span>
+    <br />
+    @Html.EditorFor(model => model.naam, new { htmlAttributes = new { @class = "form-control" } })
+    <input type="submit" value="Create" class="btn btn-default" />
+}

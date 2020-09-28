@@ -1,0 +1,39 @@
+﻿@using DBExamenVragenAppDB;
+@model DBExamenVragenAppDB.Examen
+@{
+    ViewBag.Title = "Manage Examen";
+}
+
+<h2>Manage Examen</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ExamenId)
+    <span>ExamenNaam:</span>
+    <br />
+
+    <h3> @Model.naam </h3>
+
+}
+
+@foreach (Vraag vraag in Model.questions)
+{
+    <div class="row">
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => vraag.VraagTekst)</div>
+        <div class="col-md-1">  @Html.ActionLink("Verwijder", "VerwijderVraagExamen", new { examenid = Model.ExamenId, vraagid = vraag.VraagID }) </div>
+        <div class="col-md-1">  </div>
+    </div>
+}
+<hr /><hr />
+@foreach (Vraag vraag in ViewBag.vragen)
+{
+    if ( ! Model.questions.Contains(vraag)) {
+    <div class="row">
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => vraag.VraagTekst)</div>
+        <div class="col-md-1"> @Html.ActionLink("Voeg Toe", "VoegVraagToe", new { examenid = Model.ExamenId, vraagid = vraag.VraagID }) </div>
+        <div class="col-md-1">  </div>
+    </div>
+    }
+}
+

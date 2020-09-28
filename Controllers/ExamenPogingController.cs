@@ -34,7 +34,7 @@ namespace WebExamenVragenAppYCAug.Controllers
             if (vraagindex > 0) {
                 td.vorigeVraag = td.examen.questions[vraagindex - 1];
             }
-            if (vraagindex < td.examen.questions.Count) {
+            if (vraagindex < td.examen.questions.Count - 1) {
                 td.volgendeVraag = td.examen.questions[vraagindex + 1];
             }
             ViewBag.tdtd = td;
