@@ -5,31 +5,45 @@
 }
 
 <h2>Zelf Proberen</h2>
-<h3>Hier is de rol Docent</h3>
-Hier moet een lijst komen
-	<div class="row">
-		<div class="col-md-3"> VraagTekst </div>
-		<div class="col-md-3"> Antwoord </div>
-		<div class="col-md-3"> Toelichting</div>
-		<div class="col-md-1"> Edit </div>
-		<div class="col-md-1"> Verwijder </div>
-		<div class="col-md-1"> Edit </div>
-	</div>
+<h3>U bent Docent</h3>
+Alle vragen in het Systeem
+<div class="row">
+    <div class="col-md-3"> VraagTekst </div>
+    <div class="col-md-3"> Antwoord </div>
+    <div class="col-md-3"> Toelichting</div>
+    <div class="col-md-1"> Edit </div>
+    <div class="col-md-1"> Verwijder </div>
+</div>
 @foreach (var question in Model)
 {
-	<div class="row">
-		<div class="col-md-3"> @Html.DisplayFor(modelItem => question.VraagTekst)</div>
-		<div class="col-md-3"> @Html.DisplayFor(modelItem => question.Antwoord)</div>
-		<div class="col-md-3"> @Html.DisplayFor(modelItem => question.Toelichting)</div>
-		<div class="col-md-1"> @Html.ActionLink("WijzigVraag", "WijzigVraag", new { nummertje = question.VraagID }) </div>
-		<div class="col-md-1"> @Html.ActionLink("Verwijder", "VerwijderVraag", new { nummertje = question.VraagID }) </div>
-		<div class="col-md-1">  </div>
-	</div>
-}                                                                  
+    <div class="row">
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => question.VraagTekst)</div>
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => question.Antwoord)</div>
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => question.Toelichting)</div>
+        <div class="col-md-1"> @Html.ActionLink("WijzigVraag", "WijzigVraag", new { nummertje = question.VraagID }) </div>
+        <div class="col-md-1"> @Html.ActionLink("Verwijder", "VerwijderVraag", new { nummertje = question.VraagID }) </div>
+        <div class="col-md-1">  </div>
+    </div>
+}
 
 
 <button> @Html.ActionLink("CreeerVraag", "CreeerVraag")</button>
 
+<hr />
+Alle Examens in het Systeem
+
+@foreach (Examen examen in ViewBag.Examens)
+{
+    <div class="row">
+        <div class="col-md-3"> @Html.DisplayFor(modelItem => examen.naam)</div>
+        <div class="col-md-1">(@examen.questions.Count)</div>
+        <div class="col-md-1"> @Html.ActionLink("ManageExamen", "ManageExamen", new { nummertje = examen.ExamenId }) </div>
+        <div class="col-md-1">  </div>
+    </div>
+}
+
+
+<button> @Html.ActionLink("CreeerExamen", "CreeerExamen")</button>
 
 
 

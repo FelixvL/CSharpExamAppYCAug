@@ -6,20 +6,16 @@
 
 <h2>ExamenPoging</h2>
 
-@foreach (Vraag v in ViewBag.Vragenlijst)
-{
-    <div>@v.VraagTekst</div>
-}
 
 
 
 @foreach (Examen v in ViewBag.Examenlijst)
 {
-<div>@Html.ActionLink(@v.naam, "StartExamen", new { examennummer = v.ExamenId }))</div>
-    <div>@foreach (Vraag vv in v.questions)
-    {
-        <span>@vv.VraagTekst</span>
-    }
-    </div>
+<div>@Html.ActionLink(@v.naam, "StartExamen", new { examennummer = v.ExamenId }) (@v.questions.Count)</div>
+//    <div>@foreach (Vraag vv in v.questions)
+  //  {
+    //    <span>@vv.VraagTekst</span>
+   // }
+   // </div>
 }
 
