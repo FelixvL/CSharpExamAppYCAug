@@ -10,4 +10,16 @@
     <div>@vraag.VraagTekst</div>
 }
 
-@Html.ActionLink("Start Examen", "ToonVraag", new { vraagindex = 0, examenId = Model.ExamenId })
+<hr />
+@Html.ActionLink("Start Nieuw Poging", "StartPoging", new { examenid = Model.ExamenId })
+
+@foreach (Poging poging in ViewBag.pogingen)
+{
+    <div>@Html.ActionLink("Start ExamenPoging", "ToonVraag", new { vraagindex = 0, pogingid = poging.PogingId }) (p:@poging.PogingId) (e:@poging.Examen.ExamenId)</div>
+}
+
+
+@foreach (Antwoord antwoord in ViewBag.antwoorden)
+{
+    <div>@antwoord.AntwoordTekst (p:@antwoord.Poging.PogingId) (v:@antwoord.Vraag.VraagID)</div>
+}
