@@ -1,6 +1,28 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ToonVraag";
+}
+@section scripts {
+    <script>
+        $(function () {
+            $('.toggle').click(function () {
+                var self = $(this);
+                var url = self.data('url');
+                var id = self.attr('id');
+                var value = self.prop('checked');
+                var getUrl = window.location;
+                var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+                console.log(baseUrl);
+                $.ajax({
+                    url: baseUrl+'/Hoi',
+                    data: { antwoord: $('#antw').val(), pogingid: $('#pogingid').val(), vraagid: $('#vraagid').val() },
+                    type: 'POST',
+                    success: function (response) {
+                        document.getElementById("uitkomst").innerHTML = response;
+                    }
+                });
+            });
+        });
+    </script>
 }
 
 <h2>ToonVraag</h2>
@@ -8,12 +30,23 @@
 
 @if (ViewBag.tdtd.vorigeVraag != null)
 {
-    @Html.ActionLink("Vorige Vraag", "ToonVraag", new { vraagindex = ViewBag.tdtd.huidigeIndex - 1, examenId = ViewBag.tdtd.examen.ExamenId })
+    @Html.ActionLink("Vorige Vraag", "ToonVraag", new { vraagindex = ViewBag.tdtd.huidigeIndex - 1, pogingid = ViewBag.tdtd.poging.PogingId })
 
 }
 @if (ViewBag.tdtd.volgendeVraag != null)
 {
-    @Html.ActionLink("Volgende Vraag", "ToonVraag", new { vraagindex = ViewBag.tdtd.huidigeIndex + 1, examenId = ViewBag.tdtd.examen.ExamenId })
+    @Html.ActionLink("Volgende Vraag", "ToonVraag", new { vraagindex = ViewBag.tdtd.huidigeIndex + 1, pogingid = ViewBag.tdtd.poging.PogingId })
 
 }
 @Html.ActionLink("Terug naar overzicht Examen", "StartExamen", new { examennummer = ViewBag.tdtd.examen.ExamenId }))
+
+<input type="text" id="antw" />
+
+<br />examid: <input type="text" id="examid" value="@ViewBag.tdtd.examen.ExamenId"/>
+<br />pogingid:<input type="text" id="pogingid" value="@ViewBag.tdtd.poging.PogingId"/>
+<br />huidigeVraagid:<input type="text" id="vraagid" value="@ViewBag.tdtd.huidigeVraag.VraagID"/>
+<br /><input type="button" class="toggle" value="inleveren" />
+
+
+
+<div id="uitkomst"></div>
